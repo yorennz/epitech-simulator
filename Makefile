@@ -5,47 +5,34 @@
 ## project's Makefile
 ##
 
-CC	=	gcc
+CCC	=	g++
 
-SRC	=	src/game/player/movements.c	\
-		src/game/player/stats.c	\
-		src/game/player/player.c	\
-		src/game/display.c	\
-		src/game/events.c	\
-		src/game/delta_time.c	\
-		src/game/game.c	\
-		src/window/window.c	\
-		src/config/config.c	\
-		src/klb.c	\
-		src/error_handling.c	\
-		src/main.c
+SRC	=	src/main.cpp
 
-OBJ	=	$(SRC:.c=.o)
+OBJ	=	$(SRC:.cpp=.o)
 
-NAME	=	klb
+NAME	=	epitech_simulator
 
 CFLAGS	=	-Wall -Wextra
 
-CPPFLAGS	=	-Iinclude
+CPPFLAGS	=	-I include
 
-LIBMY	=	-Llib -lmy
+LDFLAGS	=	-L ./lib
 
-CSFML	=	-lcsfml-graphics -lcsfml-system -lcsfml-audio -lcsfml-window
+LDLIBS	=	-lmy
 
-all:	libmy $(NAME)
+SFML_FLAGS	=	-lsfml-graphics -lsfml-window -lsfml-system
 
-libmy:
-	make -C lib/my
+all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(LIBMY) $(CSFML)
+	$(CCC) -o $(NAME) $(OBJ) $(SFML_FLAGS)
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
-	make fclean -C lib/my
+	$(RM) $(NAME)
 
 re:	fclean all
 
