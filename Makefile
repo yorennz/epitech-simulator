@@ -13,20 +13,18 @@ OBJ	=	$(SRC:.cpp=.o)
 
 NAME	=	epitech_simulator
 
-CFLAGS	=	-Wall -Wextra
+CPPFLAGS	=	-Wall -Wextra -Iinclude
 
-CPPFLAGS	=	-I include
-
-LDFLAGS	=	-L ./lib
+LDFLAGS	=	-Llib
 
 LDLIBS	=	-lmy
 
-SFML_FLAGS	=	-lsfml-graphics -lsfml-window -lsfml-system
+SFMLFLAGS	=	-lsfml-graphics -lsfml-window -lsfml-system
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	$(CCC) -o $(NAME) $(OBJ) $(SFML_FLAGS)
+	$(CCC) -o $(NAME) $(OBJ) $(SFMLFLAGS)
 
 clean:
 	$(RM) $(OBJ)
@@ -36,7 +34,7 @@ fclean:	clean
 
 re:	fclean all
 
-debug:	CFLAGS += -g
+debug:	CPPFLAGS += -g
 debug:	re
 
 .PHONY: all clean fclean re debug
