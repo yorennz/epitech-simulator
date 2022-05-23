@@ -6,6 +6,11 @@
 */
 
 #include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Config.hpp>
+#include <SFML/Main.hpp>
 
 void check_events(sf::Window& window, sf::Event& event)
 {
@@ -16,13 +21,14 @@ void check_events(sf::Window& window, sf::Event& event)
 
 int epitech_simulator(int ac, char * const * const av)
 {
-    sf::Window window;
+    sf::RenderWindow window;
     sf::Event event;
     sf::VideoMode video_mode(800, 600, 32);
 
-    window.create(video_mode, "Epitech Simulator");
+    window.create(video_mode, "Epitech Simulator", sf::Style::Default);
     window.setFramerateLimit(60);
     while (window.isOpen()) {
+        window.clear(sf::Color::Black);
         window.display();
         while (window.pollEvent(event))
             check_events(window, event);
