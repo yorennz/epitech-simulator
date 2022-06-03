@@ -1,10 +1,5 @@
-/*
-** EPITECH PROJECT, 2022
-** main
-** File description:
-** main function that check error handling and load the game
-*/
-
+#include <iostream>
+#include <vector>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
@@ -19,17 +14,32 @@ void check_events(sf::Window& window, sf::Event& event)
     return;
 }
 
+void check_keys_pressed(sf::RectangleShape& rectangle)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+        rectangle.move(sf::Vector2f(0, -1));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S));
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D));
+    return;
+}
+
 int epitech_simulator(int ac, char * const * const av)
 {
     sf::RenderWindow window;
     sf::Event event;
     sf::VideoMode video_mode(800, 600, 32);
+    sf::RectangleShape rectangle;
 
+    rectangle.setSize(sf::Vector2f(100, 100));
+    rectangle.setFillColor(sf::Color::Red);
     window.create(video_mode, "Epitech Simulator", sf::Style::Default);
     window.setFramerateLimit(60);
     while (window.isOpen()) {
         window.clear(sf::Color::Black);
+        window.draw(rectangle);
         window.display();
+        check_keys_pressed(rectangle);
         while (window.pollEvent(event))
             check_events(window, event);
     }
