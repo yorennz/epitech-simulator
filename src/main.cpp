@@ -16,11 +16,22 @@ void check_events(sf::Window& window, sf::Event& event)
 
 void check_keys_pressed(sf::RectangleShape& rectangle)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
         rectangle.move(sf::Vector2f(0, -1));
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q));
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S));
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D));
+        rectangle.setFillColor(sf::Color::Magenta);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
+        rectangle.move(sf::Vector2f(-1, 0));
+        rectangle.setFillColor(sf::Color::Blue);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+        rectangle.move(sf::Vector2f(0, 1));
+        rectangle.setFillColor(sf::Color::Green);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+        rectangle.move(sf::Vector2f(1, 0));
+        rectangle.setFillColor(sf::Color::Yellow);
+    }
     return;
 }
 
@@ -34,7 +45,7 @@ int epitech_simulator(int ac, char * const * const av)
     rectangle.setSize(sf::Vector2f(100, 100));
     rectangle.setFillColor(sf::Color::Red);
     window.create(video_mode, "Epitech Simulator", sf::Style::Default);
-    window.setFramerateLimit(60);
+    window.setFramerateLimit(120+120);
     while (window.isOpen()) {
         window.clear(sf::Color::Black);
         window.draw(rectangle);
