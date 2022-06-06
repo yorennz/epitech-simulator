@@ -7,7 +7,9 @@
 
 CCC	=	g++
 
-SRC	=	src/main.cpp
+SRC	=	src/player/methods.cpp	\
+		src/player/init_player.cpp	\
+		src/main.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
 
