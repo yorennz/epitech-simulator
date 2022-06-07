@@ -8,7 +8,7 @@ class Player
 
     // Constructors
 
-    Player();
+    Player(void);
     Player(sf::Color const& color, sf::Vector2f const& size, float const& speed);
 
     // Methods
