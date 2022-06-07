@@ -1,6 +1,8 @@
 #pragma once
 
-#include "SFML.hpp"
+#include <string>
+
+#include <SFML/Graphics.hpp>
 
 class Window
 {
@@ -8,11 +10,14 @@ class Window
 
     // Constructors
 
-    Window(std::string const& title, unsigned int const& width,
-           unsigned int const& height, unsigned int const& bitsPerPixel = 32);
+    Window(void);
+    Window(std::string const& title, sf::VideoMode const& videoMode,
+           unsigned int const& style);
 
     // Methods
 
+    void create(std::string const& title, sf::VideoMode const& videoMode,
+                unsigned int const& style);
     void close(void);
     bool isOpen(void);
     void resize(int const& width, int const& height);

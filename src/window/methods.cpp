@@ -1,5 +1,14 @@
 #include "Window.hpp"
 
+void Window::create(std::string const& title, sf::VideoMode const& videoMode,
+                    unsigned int const& style)
+{
+    m_window.create(videoMode, title, style);
+    m_window.setFramerateLimit(60);
+    m_view = m_window.getDefaultView();
+    return;
+}
+
 void Window::close(void)
 {
     m_window.close();

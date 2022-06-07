@@ -1,12 +1,11 @@
-#include <string>
-
 #include "Window.hpp"
 
-Window::Window(std::string const& title, unsigned int const& width,
-               unsigned int const& height, unsigned int const& bitsPerPixel):
-    m_title(title)
+Window::Window(void)
 {
-    m_window.create(sf::VideoMode(width, height, bitsPerPixel), m_title, sf::Style::Default);
-    m_window.setFramerateLimit(60);
-    m_view = m_window.getDefaultView();
+}
+
+Window::Window(std::string const& title, sf::VideoMode const& videoMode,
+               unsigned int const& style)
+{
+    Window::create(title, videoMode, style);
 }
