@@ -1,15 +1,13 @@
 #include "Player.hpp"
+#include <iostream>
 
-Player::Player(void):
-    m_color(sf::Color::Green), m_size(100, 100)
+Player::Player(void)
 {
-    m_shape.setSize(m_size);
-    m_shape.setFillColor(m_color);
-}
+    Player::create(sf::Color::Cyan, sf::Vector2f(100, 100), 10);
+};
 
-Player::Player(sf::Color const& color, sf::Vector2f size, float const& speed):
-    m_color(color), m_size(size), m_speed(speed)
+Player::Player(sf::Color const& color, sf::Vector2f const& size, float const& speed)
 {
-    m_shape.setSize(m_size);
-    m_shape.setFillColor(m_color);
-}
+    std::cout << "ayow" << std::endl;
+    Player::create(color, size, speed);
+};

@@ -1,5 +1,15 @@
 #include "Player.hpp"
 
+void Player::create(sf::Color const& color, sf::Vector2f const& size,
+                    float const& speed)
+{
+    m_color = color;
+    m_size = size;
+    m_speed = speed;
+    m_shape.setFillColor(m_color);
+    m_shape.setSize(m_size);
+}
+
 void Player::events(void)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))

@@ -9,10 +9,13 @@ class Player
     // Constructors
 
     Player();
-    Player(sf::Color const& color, sf::Vector2f size, float const& speed);
+    Player(sf::Color const& color, sf::Vector2f const& size, float const& speed);
 
     // Methods
 
+    public:
+
+    void create(sf::Color const& color, sf::Vector2f const& size, float const& speed);
     void events(void);
     void move(float const& x, float const& y);
     void draw(sf::RenderWindow &window) const;
