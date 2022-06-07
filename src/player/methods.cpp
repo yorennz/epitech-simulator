@@ -10,7 +10,6 @@ void Player::move(float const& x, float const& y)
 
 void Player::draw(sf::RenderWindow &window) const
 {
-    std::cout << "brr" << std::endl;
     window.draw(m_shape);
     return;
 }

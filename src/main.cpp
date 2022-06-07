@@ -15,13 +15,13 @@ void check_events(sf::Window& window, sf::Event& event)
 void check_keys_pressed(Player& player)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-        player.move(0, -1);
+        player.move(0, -3);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        player.move(-1, 0);
+        player.move(-3, 0);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        player.move(0, 1);
+        player.move(0, 3);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        player.move(1, 0);
+        player.move(3, 0);
     return;
 }
 
@@ -31,15 +31,13 @@ int epitech_simulator(int ac, char * const * const av)
     sf::Event event;
     sf::VideoMode video_mode(800, 600, 32);
     Player player;
-    sf::RectangleShape rectangle(sf::Vector2f(100, 100));
 
-    rectangle.setFillColor(sf::Color::Green);
     window.create(video_mode, "Epitech Simulator", sf::Style::Default);
     window.setFramerateLimit(60);
     while (window.isOpen()) {
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         player.draw(window);
-        //window.draw(rectangle);
+        window.display();
         check_keys_pressed(player);
         while (window.pollEvent(event))
             check_events(window, event);
