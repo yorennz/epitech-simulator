@@ -1,32 +1,20 @@
 #include <iostream>
 #include <vector>
 
-#include "SFML.hpp" // temporaire (le but étant d'inclure \
-                   le strict nécessaire dans chaque fichiers
+#include "SFML.hpp" // temporary because the goal is to optimize \
+                    the compilation by including only needed library
 #include "Window.hpp"
 #include "Player.hpp"
-
-void check_keys_pressed(Player& player)
-{
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
-        player.move(0, -3);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
-        player.move(-3, 0);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-        player.move(0, 3);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        player.move(3, 0);
-    return;
-}
 
 int epitech_simulator(int ac, char * const * const av)
 {
     Window window("Epitech Simulator", 800, 600, 32);
-    Player player;
+    Player player(sf::Color::Red, sf::Vector2f(100, 100), 10); // constructor which take color, size, and speed of the player \
+                                                               temporary because the goal is to take one parameter to retrieve datas from file
 
     while (window.isOpen()) {
         window.events();
-        check_keys_pressed(player);
+        player.events();
         window.display();
         player.draw(window.get());
     }

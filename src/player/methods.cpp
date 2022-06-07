@@ -1,5 +1,18 @@
 #include "Player.hpp"
 
+void Player::events(void)
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+        Player::move(0, -m_speed);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+        Player::move(-m_speed, 0);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        Player::move(0, m_speed);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        Player::move(m_speed, 0);
+    return;
+}
+
 void Player::move(float const& x, float const& y)
 {
     m_shape.move(sf::Vector2f(x, y));
