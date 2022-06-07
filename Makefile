@@ -9,6 +9,8 @@ CCC	=	g++
 
 SRC	=	src/player/methods.cpp	\
 		src/player/init_player.cpp	\
+		src/window/methods.cpp	\
+		src/window/init_window.cpp	\
 		src/main.cpp
 
 OBJ	=	$(SRC:.cpp=.o)
